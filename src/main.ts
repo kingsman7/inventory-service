@@ -12,7 +12,7 @@ async function bootstrap() {
     options: {
       client: {
         clientId: 'inventory-service',
-        brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
+        brokers: (process.env.KAFKA_BROKERS || process.env.KAFKA_BROKER || 'localhost:9092').split(','),
       },
       consumer: {
         groupId: 'inventory-consumer-group', // Grupo único para no interferir con otros servicios

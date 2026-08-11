@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module.js';
 import { InventoryController } from './inventory/inventory.controller.js';
 import { InventoryService } from './inventory/inventory.service.js';
+import { AppService } from './app.service.js';
 
 @Module({
   imports: [
@@ -10,6 +11,6 @@ import { InventoryService } from './inventory/inventory.service.js';
     PrismaModule,
   ],
   controllers: [InventoryController],
-  providers: [InventoryService],
+  providers: [InventoryService, AppService],
 })
 export class AppModule {}
